@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Mapas Malintzi</title>
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="img/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Mapas Malintzi</h1>
+    <button id="installBtn" class="btn hidden" type="button" title="Instalar">Instalar</button>
+  </header>
+
+  <main class="container">
+    <section class="toolbar">
+      <input id="search" type="search" placeholder="Buscar municipio o territorio…" aria-label="Buscar">
+      <button id="clearSearch" class="btn btn-secondary" type="button">Limpiar</button>
+    </section>
+
+    <section id="list" class="cards" aria-live="polite"></section>
+
+    <section class="notes">
+      <details>
+        <summary>¿Cómo agrego direcciones?</summary>
+        <p>Basta con envíar coordenadas o captura de pantalla de las mismas al S.S.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>© <span id="year"></span> Malintzi LSM · Interfaz de Territorios</small>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
