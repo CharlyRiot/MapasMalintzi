@@ -4,7 +4,7 @@ const MUNICIPIOS = [
     nombre: "Zona Oeste",
     nota: "Municipios hacia el poniente",
     territorios: [
-      { nombre: "Amaxac", url: "https://tuservidor/municipio-oeste/territorio-01" },
+      { nombre: "Amaxac", url: "https://www.google.com/maps/d/edit?mid=1DfpKmaJhRhs37QUWqE-ffjxOY09z4_s&usp=sharing" },
       { nombre: "Cuaxomulco", url: "https://tuservidor/municipio-oeste/territorio-02" },
       { nombre: "Ixtacuixtla", url: "https://tuservidor/municipio-oeste/territorio-03" },
       { nombre: "Panotla", url: "https://www.google.com/maps/d/edit?mid=1w-qFCSlqfJUn8i7pobw_Pw7LaODw6Qc&usp=sharing" },
@@ -18,7 +18,7 @@ const MUNICIPIOS = [
     nombre: "Zona Este",
     nota: "Municipios hacia el oriente y centro",
     territorios: [
-      { nombre: "Apetatitlán", url: "https://tuservidor/municipio-este/territorio-01" },
+      { nombre: "Apetatitlán", url: "https://www.google.com/maps/d/edit?mid=1yR6zYtcgoiDVybnFg1nzdwyIVaHiQ5o&usp=sharing" },
       { nombre: "Chiautempan", url: "https://tuservidor/municipio-este/territorio-02" },
       { nombre: "Contla", url: "https://tuservidor/municipio-este/territorio-03" },
       { nombre: "La Magdalena", url: "https://tuservidor/municipio-este/territorio-04" },
