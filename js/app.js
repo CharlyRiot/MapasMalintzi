@@ -43,6 +43,17 @@ function normalizeMyMaps(url){
   return url.replace("/d/edit?mid=", "/d/viewer?mid=");
 }
 
+// Considera “pendiente” todo lo que apunte a tu servidor de ejemplo o no sea http(s)
+function isPlaceholder(url){
+  return !url || /tuservidor/i.test(url);
+}
+function isHttpUrl(url){
+  try { const u = new URL(url); return /^https?:$/i.test(u.protocol); }
+  catch { return false; }
+}
+
+// Si quieres ver los pendientes en la UI, cambia a true
+const SHOW_PENDING = true;
 
 function render(items){
   $list.innerHTML = "";
@@ -51,10 +62,18 @@ function render(items){
     return;
   }
   const frag = document.createDocumentFragment();
+
   items.forEach(m => {
+    // separa válidos y pendientes
+    const validos   = (m.territorios||[]).filter(t => !isPlaceholder(t.url) && isHttpUrl(t.url));
+    const pendientes = (m.territorios||[]).filter(t => isPlaceholder(t.url) || !isHttpUrl(t.url));
+
+    // si no hay válidos y no quieres ver pendientes, oculta todo el municipio
+    if (!validos.length && (!SHOW_PENDING || !pendientes.length)) return;
+
     const card = document.createElement("article");
     card.className = "card";
-    const total = m.territorios?.length ?? 0;
+    const total = validos.length + (SHOW_PENDING ? pendientes.length : 0);
 
     card.innerHTML = `
       <header style="display:flex;align-items:center;justify-content:space-between;gap:.5rem">
@@ -63,18 +82,31 @@ function render(items){
       </header>
       ${m.nota ? `<p>${m.nota}</p>` : ""}
       <div class="links">
-        ${ (m.territorios||[]).map(t => `
+        ${ validos.map(t => `
           <a class="link" href="${normalizeMyMaps(t.url)}" target="_blank" rel="noopener">
             <span>${t.nombre}</span>
             <small>abrir ↗</small>
           </a>
         `).join("") }
+        ${ SHOW_PENDING ? pendientes.map(t => `
+          <span class="link link--disabled" title="Pendiente de URL real">
+            <span>${t.nombre}</span>
+            <small>pendiente</small>
+          </span>
+        `).join("") : "" }
       </div>
     `;
     frag.appendChild(card);
   });
+
   $list.appendChild(frag);
+
+  // Si después de filtrar no quedó nada:
+  if(!$list.children.length){
+    $list.innerHTML = `<p style="color:#9aa3b2">Sin resultados.</p>`;
+  }
 }
+
 
 function filtra(q){
   if(!q) return MUNICIPIOS;

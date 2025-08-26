@@ -19,6 +19,7 @@ body{
 
 .app-header,.app-footer{
   position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(6px);
+  -webkit-backdrop-filter:saturate(1.2) blur(6px); /* Safari iOS */
   background:rgba(10,15,31,.6); border-bottom:1px solid var(--border);
   display:flex; align-items:center; justify-content:space-between; gap:.75rem;
   padding:.9rem 1rem;
@@ -82,3 +83,26 @@ input[type="search"]::placeholder{color:var(--muted)}
 
 .notes{margin-top:1rem; color:var(--muted)}
 code{color:#8bd3ff}
+
+/* iOS + Android friendly */
+.link--disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  border-style:dashed;
+
+  /* Evitar selección y menú contextual en iOS */
+  -webkit-user-select:none; /* iOS/Safari */
+  user-select:none;         /* estándar */
+  -webkit-touch-callout:none; /* sin menú al mantener presionado */
+
+  /* Evitar que “haga tap” por error */
+  pointer-events:none;
+}
+.link--disabled small{ text-transform:uppercase; }
+
+/* Recomendado global para iOS (colócalo una vez) */
+html{
+  -webkit-text-size-adjust:100%; /* Safari iOS, versiones antiguas */
+  text-size-adjust:100%;         /* Estándar para Chrome, Edge, Firefox, Android */
+}
+
