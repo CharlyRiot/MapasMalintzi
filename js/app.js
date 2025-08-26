@@ -5,7 +5,7 @@ const MUNICIPIOS = [
     nota: "Municipios hacia el poniente",
     territorios: [
       { nombre: "Amaxac", url: "https://www.google.com/maps/d/edit?mid=1DfpKmaJhRhs37QUWqE-ffjxOY09z4_s&usp=sharing" },
-      { nombre: "Cuaxomulco", url: "https://tuservidor/municipio-oeste/territorio-02" },
+      { nombre: "Cuaxomulco", url: "https://www.google.com/maps/d/edit?mid=1Oa0EeUnfvm0pnwud0yg1NaxgNjeg4LY&usp=sharing" },
       { nombre: "Ixtacuixtla", url: "https://tuservidor/municipio-oeste/territorio-03" },
       { nombre: "Panotla", url: "https://www.google.com/maps/d/edit?mid=1w-qFCSlqfJUn8i7pobw_Pw7LaODw6Qc&usp=sharing" },
       { nombre: "Texoloc", url: "https://tuservidor/municipio-oeste/territorio-05" },

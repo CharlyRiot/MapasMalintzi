@@ -1,5 +1,5 @@
 // Cache ultraligero para funcionar offline con la “carcasa” de la app
-const CACHE = "malintzi-v1";
+const CACHE = "malintzi-v2";
 const ASSETS = [
   "./",
   "./index.html",
