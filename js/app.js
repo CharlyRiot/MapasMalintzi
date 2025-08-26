@@ -4,13 +4,13 @@ const MUNICIPIOS = [
     nombre: "Zona Oeste",
     nota: "Municipios hacia el poniente",
     territorios: [
-      { nombre: "Amaxac", url: "https://www.google.com/maps/d/edit?mid=1DfpKmaJhRhs37QUWqE-ffjxOY09z4_s&usp=sharing" },
-      { nombre: "Cuaxomulco", url: "https://www.google.com/maps/d/edit?mid=1Oa0EeUnfvm0pnwud0yg1NaxgNjeg4LY&usp=sharing" },
-      { nombre: "Ixtacuixtla", url: "https://www.google.com/maps/d/edit?mid=1Ix7xnnj-0BSQI2yPOoh1FGeBgE4X4gs&usp=sharing" },
-      { nombre: "Panotla", url: "https://www.google.com/maps/d/edit?mid=1w-qFCSlqfJUn8i7pobw_Pw7LaODw6Qc&usp=sharing" },
-      { nombre: "Texoloc", url: "https://tuservidor/municipio-oeste/territorio-05" },
-      { nombre: "Nopalucan", url: "https://tuservidor/municipio-oeste/territorio-06" },
-      { nombre: "Totolac", url: "https://tuservidor/municipio-oeste/territorio-07" },
+      { nombre: "Amaxac",       url: "https://www.google.com/maps/d/viewer?mid=1DfpKmaJhRhs37QUWqE-ffjxOY09z4_s" },
+      { nombre: "Cuaxomulco",   url: "https://www.google.com/maps/d/viewer?mid=1Oa0EeUnfvm0pnwud0yg1NaxgNjeg4LY" },
+      { nombre: "Ixtacuixtla",  url: "https://www.google.com/maps/d/viewer?mid=1Ix7xnnj-0BSQI2yPOoh1FGeBgE4X4gs" },
+      { nombre: "Panotla",      url: "https://www.google.com/maps/d/viewer?mid=1w-qFCSlqfJUn8i7pobw_Pw7LaODw6Qc" },
+      { nombre: "Texoloc",      url: "https://tuservidor/municipio-oeste/territorio-05" },
+      { nombre: "Nopalucan",    url: "https://tuservidor/municipio-oeste/territorio-06" },
+      { nombre: "Totolac",      url: "https://tuservidor/municipio-oeste/territorio-07" },
       { nombre: "Yauhquemecan", url: "https://tuservidor/municipio-oeste/territorio-08" }
     ]
   },
@@ -18,13 +18,13 @@ const MUNICIPIOS = [
     nombre: "Zona Este",
     nota: "Municipios hacia el oriente y centro",
     territorios: [
-      { nombre: "Apetatitlán", url: "https://www.google.com/maps/d/edit?mid=1yR6zYtcgoiDVybnFg1nzdwyIVaHiQ5o&usp=sharing" },
+      { nombre: "Apetatitlán", url: "https://www.google.com/maps/d/viewer?mid=1yR6zYtcgoiDVybnFg1nzdwyIVaHiQ5o" },
       { nombre: "Chiautempan", url: "https://tuservidor/municipio-este/territorio-02" },
-      { nombre: "Contla", url: "https://tuservidor/municipio-este/territorio-03" },
-      { nombre: "La Magdalena", url: "https://tuservidor/municipio-este/territorio-04" },
-      { nombre: "Santa Cruz", url: "https://tuservidor/municipio-este/territorio-05" },
-      { nombre: "Xiloxoxtla", url: "https://tuservidor/municipio-este/territorio-06" },
-      { nombre: "Tlaxcala", url: "https://www.google.com/maps/d/edit?mid=1wNNdFOppuXb9HMxb-qs7knlsQ9WUKT8&usp=sharing" }
+      { nombre: "Contla",      url: "https://tuservidor/municipio-este/territorio-03" },
+      { nombre: "La Magdalena",url: "https://tuservidor/municipio-este/territorio-04" },
+      { nombre: "Santa Cruz",  url: "https://tuservidor/municipio-este/territorio-05" },
+      { nombre: "Xiloxoxtla",  url: "https://tuservidor/municipio-este/territorio-06" },
+      { nombre: "Tlaxcala",    url: "https://www.google.com/maps/d/viewer?mid=1wNNdFOppuXb9HMxb-qs7knlsQ9WUKT8" }
     ]
   }
 ];
@@ -37,6 +37,12 @@ const $year = document.querySelector("#year");
 $year.textContent = new Date().getFullYear();
 
 function normaliza(t){ return t.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); }
+
+function normalizeMyMaps(url){
+  if (!url) return url;
+  return url.replace("/d/edit?mid=", "/d/viewer?mid=");
+}
+
 
 function render(items){
   $list.innerHTML = "";
@@ -58,7 +64,7 @@ function render(items){
       ${m.nota ? `<p>${m.nota}</p>` : ""}
       <div class="links">
         ${ (m.territorios||[]).map(t => `
-          <a class="link" href="${t.url}" target="_blank" rel="noopener">
+          <a class="link" href="${normalizeMyMaps(t.url)}" target="_blank" rel="noopener">
             <span>${t.nombre}</span>
             <small>abrir ↗</small>
           </a>

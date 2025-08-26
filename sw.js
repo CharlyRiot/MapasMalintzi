@@ -1,5 +1,5 @@
 // Cache ultraligero para funcionar offline con la “carcasa” de la app
-const CACHE = "malintzi-v2";
+const CACHE = "malintzi-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -33,3 +33,6 @@ self.addEventListener("fetch", (e) => {
     })
   );
 });
+
+self.addEventListener("install", () => self.skipWaiting());
+self.addEventListener("activate", (e) => e.waitUntil(clients.claim()));
