@@ -1,5 +1,7 @@
-// Cache ultraligero para funcionar offline con la “carcasa” de la app
-const CACHE = "malintzi-v5";
+// Cache con timestamp (cambia solo cada build/push)
+const BUILD_TIME = new Date().toISOString().slice(0,19).replace(/[:T\-]/g,""); // ej: 20250826_153045
+const CACHE = "malintzi-" + BUILD_TIME;
+
 const ASSETS = [
   "./",
   "./index.html",
@@ -10,33 +12,31 @@ const ASSETS = [
   "./img/icon-512.png"
 ];
 
-// Instala y guarda en caché
 self.addEventListener("install", (e) => {
   self.skipWaiting();
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
 });
 
-// Activa y limpia versiones viejas
 self.addEventListener("activate", (e) => {
-  e.waitUntil(
-    (async () => {
-      await clients.claim();
-      const keys = await caches.keys();
-      await Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)));
-    })()
-  );
+  e.waitUntil((async () => {
+    await clients.claim();
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)));
+  })());
 });
 
-// Intercepta requests
+// Permite que la página pida activar de inmediato el SW nuevo
+self.addEventListener("message", (e) => {
+  if (e.data && e.data.action === "skipWaiting") self.skipWaiting();
+});
+
+// Estrategia: cache-first para el “shell”; red para lo demás
 self.addEventListener("fetch", (e) => {
   const { request } = e;
   e.respondWith(
-    caches.match(request).then(cached => {
+    caches.match(request).then((cached) => {
       if (cached) return cached;
-      return fetch(request).then(res => {
-        // No cacheamos mapas externos (CORS) para evitar problemas
-        return res;
-      }).catch(() => caches.match("./index.html"));
+      return fetch(request).catch(() => caches.match("./index.html"));
     })
   );
 });

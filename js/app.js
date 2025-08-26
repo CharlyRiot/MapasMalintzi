@@ -143,7 +143,28 @@ installBtn.addEventListener("click", async () => {
 /* ------------------ SW ------------------ */
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch(console.error);
+    navigator.serviceWorker.register("./sw.js").then((reg) => {
+      // Cuando se detecte un SW nuevo:
+      reg.onupdatefound = () => {
+        const newSW = reg.installing;
+        if (!newSW) return;
+        newSW.onstatechange = () => {
+          // Si se instaló y ya había uno controlando, refrescamos a la nueva versión
+          if (newSW.state === "installed" && navigator.serviceWorker.controller) {
+            // Pedimos al SW que haga skipWaiting y luego recargamos
+            reg.waiting?.postMessage({ action: "skipWaiting" });
+          }
+        };
+      };
+
+      // Cuando el controlador cambie (nuevo SW activo), recarga una sola vez
+      let hasRefreshed = false;
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (hasRefreshed) return;
+        hasRefreshed = true;
+        window.location.reload();
+      });
+    }).catch(console.error);
   });
 }
 
