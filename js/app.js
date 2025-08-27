@@ -20,10 +20,10 @@ const MUNICIPIOS = [
     territorios: [
       { nombre: "Apetatitlán", url: "https://www.google.com/maps/d/viewer?mid=1yR6zYtcgoiDVybnFg1nzdwyIVaHiQ5o" },
       { nombre: "Chiautempan", url: "https://www.google.com/maps/d/viewer?mid=1KL7ltQi7yFjje_KbxfXKW6X7VSC6Jmw" },
-      { nombre: "Contla",      url: "https://tuservidor/municipio-este/territorio-03" },
-      { nombre: "La Magdalena",url: "https://tuservidor/municipio-este/territorio-04" },
-      { nombre: "Santa Cruz",  url: "https://tuservidor/municipio-este/territorio-05" },
-      { nombre: "Xiloxoxtla",  url: "https://tuservidor/municipio-este/territorio-06" },
+      { nombre: "Contla",      url: "https://www.google.com/maps/d/viewer?mid=1LYXV063fQwgIUAoRBDX-ydxQzCqeqQs" },
+      { nombre: "La Magdalena",url: "https://www.google.com/maps/d/viewer?mid=1GTMrZ34F6FReI8Cmu1bdilQLOOaPuUY" },
+      { nombre: "Santa Cruz",  url: "https://www.google.com/maps/d/viewer?mid=1DCiJWuBLy9jor-bBLexifLVWdAmLK88" },
+      { nombre: "Xiloxoxtla",  url: "https://www.google.com/maps/d/viewer?mid=1obgwo24TEgStpLv8TdgzwLzKHC1bpGA" },
       { nombre: "Tlaxcala",    url: "https://www.google.com/maps/d/viewer?mid=1wNNdFOppuXb9HMxb-qs7knlsQ9WUKT8" }
     ]
   }
