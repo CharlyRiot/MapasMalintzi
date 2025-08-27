@@ -143,7 +143,7 @@ installBtn.addEventListener("click", async () => {
 /* ------------------ SW ------------------ */
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").then((reg) => {
+    navigator.serviceWorker.register("./sw.js?ts=" + Date.now()).then((reg) => {
       // Cuando se detecte un SW nuevo:
       reg.onupdatefound = () => {
         const newSW = reg.installing;
