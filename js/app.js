@@ -19,7 +19,7 @@ const MUNICIPIOS = [
     nota: "Municipios hacia el oriente y centro",
     territorios: [
       { nombre: "Apetatitlán", url: "https://www.google.com/maps/d/viewer?mid=1yR6zYtcgoiDVybnFg1nzdwyIVaHiQ5o" },
-      { nombre: "Chiautempan", url: "https://tuservidor/municipio-este/territorio-02" },
+      { nombre: "Chiautempan", url: "https://www.google.com/maps/d/viewer?mid=1KL7ltQi7yFjje_KbxfXKW6X7VSC6Jmw" },
       { nombre: "Contla",      url: "https://tuservidor/municipio-este/territorio-03" },
       { nombre: "La Magdalena",url: "https://tuservidor/municipio-este/territorio-04" },
       { nombre: "Santa Cruz",  url: "https://tuservidor/municipio-este/territorio-05" },
