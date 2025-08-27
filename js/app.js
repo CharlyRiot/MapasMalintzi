@@ -8,7 +8,7 @@ const MUNICIPIOS = [
       { nombre: "Cuaxomulco",   url: "https://www.google.com/maps/d/viewer?mid=1Oa0EeUnfvm0pnwud0yg1NaxgNjeg4LY" },
       { nombre: "Ixtacuixtla",  url: "https://www.google.com/maps/d/viewer?mid=1Ix7xnnj-0BSQI2yPOoh1FGeBgE4X4gs" },
       { nombre: "Panotla",      url: "https://www.google.com/maps/d/viewer?mid=1w-qFCSlqfJUn8i7pobw_Pw7LaODw6Qc" },
-      { nombre: "Texoloc",      url: "https://tuservidor/municipio-oeste/territorio-05" },
+      { nombre: "Texoloc",      url: "https://www.google.com/maps/d/edit?mid=1k-eoG-_NTszZlbomg6Xw5ctNBIqLGiY&usp=sharing" },
       { nombre: "Nopalucan",    url: "https://tuservidor/municipio-oeste/territorio-06" },
       { nombre: "Totolac",      url: "https://tuservidor/municipio-oeste/territorio-07" },
       { nombre: "Yauhquemecan", url: "https://tuservidor/municipio-oeste/territorio-08" }
