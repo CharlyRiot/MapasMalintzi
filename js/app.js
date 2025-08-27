@@ -9,9 +9,9 @@ const MUNICIPIOS = [
       { nombre: "Ixtacuixtla",  url: "https://www.google.com/maps/d/viewer?mid=1Ix7xnnj-0BSQI2yPOoh1FGeBgE4X4gs" },
       { nombre: "Panotla",      url: "https://www.google.com/maps/d/viewer?mid=1w-qFCSlqfJUn8i7pobw_Pw7LaODw6Qc" },
       { nombre: "Texoloc",      url: "https://www.google.com/maps/d/viewer?mid=1k-eoG-_NTszZlbomg6Xw5ctNBIqLGiY" },
-      { nombre: "Nopalucan",    url: "https://tuservidor/municipio-oeste/territorio-06" },
-      { nombre: "Totolac",      url: "https://tuservidor/municipio-oeste/territorio-07" },
-      { nombre: "Yauhquemecan", url: "https://tuservidor/municipio-oeste/territorio-08" }
+      { nombre: "Nopalucan",    url: "https://www.google.com/maps/d/viewer?mid=1lgEI9rR5N8_zzniglTkuGZciqJBJhrM" },
+      { nombre: "Totolac",      url: "https://www.google.com/maps/d/viewer?mid=1RwqJIVttQhdB8W-vgBLQJpTsfdhuB1I" },
+      { nombre: "Yauhquemecan", url: "https://www.google.com/maps/d/viewer?mid=1B6uYpVvvVlUTTp_r10QRY5zp4ALj8LI" }
     ]
   },
   {
